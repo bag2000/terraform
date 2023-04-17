@@ -1,0 +1,16 @@
+- hosts: vm-1
+  remote_user: user
+  tasks:
+
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+      become: yes
+      become_method: sudo
+
+    - service:
+        name: nginx
+        state: started
+      become: yes
+      become_method: sudo
